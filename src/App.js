@@ -4,67 +4,75 @@ import { useState } from 'react';
 import FeaturedPost from './Componets/FeaturedPost';
 import ListPost from './Componets/ListPost';
 import Posts from './Resources/Posts';
-import CreatePost from './Componets/CreatePost';
+import CreatePost from './pages/CreatePost';
 import { isVisible } from '@testing-library/user-event/dist/utils';
+import { ContactUs } from './pages/ContactUs';
+import { JoinOurTeam } from './pages/JoinOurTeam';
+import { Route, Routes } from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import { useNavigate } from 'react-router-dom';
+import { DetailPostPage } from './pages/DetailPostPage';
+import { Error } from '../src/Componets/Error';
 
 function App() {
+  const navigate=useNavigate()
 //Declarar los estados 
   const [isVisible, setIsVisible] = useState(false);
   const [allPosts, setAllPosts] = useState(Posts());
   const [postId, setPostId] = useState();
 
-  const onPress = () => {
-    setIsVisible(!isVisible);
-  };
+const findPostById=(id)=>{
+  return allPosts[id];
+}
 
   const handleOnSave = (post) => {
     //sAVE A NEW POST, ADD NEW POST TO ALLPOST
-    if(postId) {
-      const copyOfPosts = Array.from(allPosts);
-      const newAllPosts = copyOfPosts.filter((post, index) => index !== postId);//[...copyOfPosts, post]; 
-      setAllPosts([...newAllPosts, post]);
+    if(postId || postId === 0) {
+      const copyOfPost = allPosts.map((item,index)=>
+      index=== postId?post:item
+      );
+     /*  const copyOfPosts = Array.from(allPosts);
+      const newAllPosts = copyOfPosts.filter((post, index) => index !== postId);//[...copyOfPosts, post];  */
+      setAllPosts(copyOfPost);
       setPostId();
     }
     else{
       setAllPosts([...allPosts, post]);
     }
-    setIsVisible(false); //onPress()
+    navigate("/")
+/*    no regrese a la pagina navigate("/",{replace:true}) */
+   // setIsVisible(false); //onPress()
   };
+
 //Edit a post acord to post id, function get id 
   const handleOnEdit = (postId) => {
-    setIsVisible(true); //onPress()
+    // setIsVisible(true); //onPress()
     setPostId(postId);
+    navigate("/create-new-post")
   };
 
   return (
     <div className="App">
-     {/*  whwn we press a botton the content is not visible or is visible */}
-      <NavBar onPress={()=>onPress()}/>
-
-      {
+      <NavBar/>
+      <Routes>
+      <Route 
+          index 
+          element={<HomePage posts={allPosts} onEdit={handleOnEdit} />} />
+        <Route path="join-our-team" element={<JoinOurTeam/>} />
+        <Route path="contact-us" element={<ContactUs/>} />
+        <Route path="*" element={<Error/>} />
+        <Route path="create-new-post" element={<CreatePost onSave={handleOnSave}  postToUpdate={allPosts[postId]} />} />
+        <Route path="post/:postId" element={<DetailPostPage findPostById={findPostById}/>} />
+      </Routes>
+   {/*    {
         //if is different to visible we show create post that is a component that have a form for create a new note
-        isVisible ?
         <CreatePost 
         //here we share props to the component
           postToUpdate={allPosts[postId]}
           onPress={()=>onPress()}
           onSave={handleOnSave}
-        />
-        :
-        <>
-          <FeaturedPost 
-            updatedAt={"May 13 2021"} 
-            height={250} 
-            width={250} 
-            title={"The Internet of Medical Things: The Healthcare Revolution"} 
-            content={"Since the Pandemic started, we have experienced a growing dependency on technology in the healthcare industry, which demands continuous innovation to deal with the new health dangers."} 
-            image={"https://www.w3schools.com/tags/img_girl.jpg"}
-          />
-{/* here we add another componet that is called list post were we can show al post, and also we share props */}
-          <ListPost posts={allPosts} onEdit={handleOnEdit}/>
-        </>
-      }     
-     
+        /> 
+      } */}     
     </div>
   );
 }

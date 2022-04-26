@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "../styles/Blog.css";
+import { useParams } from "react-router-dom";
 
-const Post = ({ post, onEdit, index }) => {
+export const DetailPostPage = ({ findPostById }) => {
+  const params = useParams();
+  const { postId } = params;
+  const post = findPostById(postId);
   return (
     <div className="blog-post">
       <div className="blog-post-image">
@@ -17,11 +19,7 @@ const Post = ({ post, onEdit, index }) => {
         <p>{post.updatedAt}</p>
         <h1>{post.title}</h1>
         <p>{post.body}</p>
-        <Link to={`post/${index}`}>Read More</Link>
       </div>
-      <button onClick={() => onEdit()}>Edit</button>
     </div>
   );
 };
-
-export default Post;

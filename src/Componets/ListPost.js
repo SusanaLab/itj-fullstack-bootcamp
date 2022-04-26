@@ -6,7 +6,11 @@ const ListPost = ({posts, onEdit}) => {
     <>
       {
         posts.map((post, index) => {
-          return <Post key={post.updatedAt + post.title} post={post} onEdit={()=>onEdit(index)}/>
+          return <Post 
+          index={index}
+          key={post.updatedAt + post.title} 
+          post={post} 
+          onEdit={()=>onEdit(index)}/>
         })
       }
     </>

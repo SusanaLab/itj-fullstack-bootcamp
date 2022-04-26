@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Blog.css";
+import { Link } from "react-router-dom";
+import "../styles/forms.css";
 
-const CreatePost = ({ onPress, onSave, postToUpdate }) => {
+const CreatePost = ({  onSave, postToUpdate }) => {
 
   const newPost = {
     title: "",
     body: "",
     imageUrl: "",
-    updatedAt: (new Date()).toISOString()
+    updatedAt: new Date().toISOString()
   };
 
   const [newPostState, setNewPostState] = useState(postToUpdate || newPost);
@@ -55,14 +56,13 @@ const CreatePost = ({ onPress, onSave, postToUpdate }) => {
         </div>
 
         <div className="buttons-container">
-          <button
-            type="button"
-            onClick={()=>onPress()}
-          >Cancel</button>
-          <button
-            type="button"
-            onClick={()=>onSave(newPostState)}
-          >Save</button>
+          <Link to="/">
+            <button type="button">Cancel</button>
+          </Link>
+
+          <button type="button" onClick={() => onSave(newPostState)}>
+            Save
+          </button>
         </div>
       </form>
     </div>
