@@ -5,6 +5,7 @@ const {getPosts, getPost, createPost, updatePost, deletePost} = require('../cont
 //Instance router
 const router = Router()
 
+
 router.get('/post', getPosts)
 router.get('/post/:id', getPost)
 router.post('/post', createPost)

@@ -20,6 +20,9 @@ const Post = ({ post, onEdit, index }) => {
         <Link to={`post/${index}`}>Read More</Link>
       </div>
       <button onClick={() => onEdit()}>Edit</button>
+      <Link to="create-new-comment">
+          <button>commentar</button>
+        </Link>
     </div>
   );
 };

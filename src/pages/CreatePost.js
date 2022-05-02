@@ -8,7 +8,8 @@ const CreatePost = ({  onSave, postToUpdate }) => {
     title: "",
     body: "",
     imageUrl: "",
-    updatedAt: new Date().toISOString()
+    updatedAt: new Date().toISOString(),
+
   };
 
   const [newPostState, setNewPostState] = useState(postToUpdate || newPost);
