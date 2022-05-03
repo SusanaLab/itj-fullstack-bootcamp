@@ -1,4 +1,4 @@
-const URL_SERVER = "http://localhost:8000/post/";
+const URL_SERVER = "http://localhost:5000/post/";
 
 export const getAllPost = async () => {
   try {

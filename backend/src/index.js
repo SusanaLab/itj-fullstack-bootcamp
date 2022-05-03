@@ -1,8 +1,9 @@
 //Enviroment variables
 require('dotenv').config()
 
+const cors = require('cors');
 //Bring express to our project
-const express = require('express')
+const express = require('express');
 const mongoose=require("mongoose");
 
 const {getPosts} =require('./controller/posts') 
@@ -10,6 +11,7 @@ const postsRoutes =require('./routes/posts.routes')
 //Instance express
 const app = express()
 app.use(express.json())
+app.use(cors());
 
 app.use((error, req, res, next)=>{
 console.log(error.stack);

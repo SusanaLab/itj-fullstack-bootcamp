@@ -2,7 +2,7 @@ import React from 'react'
 import AddComment from '../Componets/coment/AddComment';
 import FeaturedPost from '../Componets/FeaturedPost'
 import ListPost from '../Componets/ListPost'
- export const HomePage = ({posts, OnEdit}) => {
+ export const HomePage = ({posts, OnEdit, onDelete}) => {
      return (
     
    
@@ -17,7 +17,7 @@ import ListPost from '../Componets/ListPost'
         
           />  
 {/* here we add another componet that is called list post were we can show al post, and also we share props */}
-          <ListPost posts={posts} onEdit={OnEdit}/>
+          <ListPost posts={posts} onEdit={OnEdit} onDelete={onDelete}/>
         </>
 
   );

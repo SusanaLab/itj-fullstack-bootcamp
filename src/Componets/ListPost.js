@@ -5,12 +5,14 @@ const ListPost = ({posts, onEdit}) => {
   return (
     <>
       {
-        posts.map((post, index) => {
+        posts.map((post, onEdit, onDelete) => {
           return <Post 
-          index={index}
-          key={post.updatedAt + post.title} 
+          id={post._id}
+          key={post._id} 
           post={post} 
-          onEdit={()=>onEdit(index)}/>
+          onEdit={()=>onEdit(post._id)}
+          onDelete={()=>onDelete(post._id)}
+          />
         })
       }
     </>

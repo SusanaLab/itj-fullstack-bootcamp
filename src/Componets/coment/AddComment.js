@@ -3,8 +3,8 @@ import { Link} from "react-router-dom";
 
 const AddComment = ({  onSaveComment, commentToUpdate }) => {
 
-  const newComment = {
-    title: "",    body: "",
+  const newComment = {  
+    body: "",
     updatedAt: new Date().toISOString(),
 
   };

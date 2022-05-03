@@ -58,7 +58,7 @@ const deletePost = async (req, res, next) => {
     const id = req.params.id;
     try {
      await postService.deletePost(id)
-        res.status(204).send();
+     return res.status(404).json({message:"post deleted correctly"})
           }
           catch(error){
         next(error)
