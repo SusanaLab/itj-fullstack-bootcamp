@@ -1,19 +1,21 @@
 const mongoose = require("mongoose");
 
-const ComentSchema = new mongoose.Schema({
-    author:{
-        type:String,
-        required:true
+const CommentSchema = new mongoose.Schema({
+    author: {
+      type: String,
+      required: true,
     },
-    comment:{
-        type:String,
-        required:true
+    comment: {
+      type: String,
+      required: true,
     },
-});
+  },  
+  { timestamps: true }
+);
 const PostSchema= new mongoose.Schema(
     
     {
-        tittle:{
+        title:{
         type:String,
         required:true
 
@@ -28,8 +30,8 @@ const PostSchema= new mongoose.Schema(
         author:{
             type:String,
             required:true
-        },
-        comments:[ ComentSchema ],
+        }, 
+        comments: [CommentSchema],
     },
     {timestamps:true }
 )

@@ -1,4 +1,5 @@
-const postService =require("../services/post-service")
+const postService = require("../services/post-service")
+
 const getPosts = async(req, res, next) => {
 try{
     const posts = await postService.getPosts();
@@ -23,13 +24,13 @@ res.json(post)
    catch (error){
     next(error);
    }
-}
+};
 
 const createPost = async(req, res) => {
     const newPost = req.body
 
   try {
-const savePost =await postService.CreatePost(newPost)
+const savePost =await postService.createPost(newPost)
 res.status(201).json(savePost);
   }
   catch(error){
@@ -52,7 +53,7 @@ const updatePost = async (req, res, next) => {
              catch(error){
            next(error);
              }
-}
+};
 
 const deletePost = async (req, res, next) => {
     const id = req.params.id;
@@ -63,7 +64,7 @@ const deletePost = async (req, res, next) => {
           catch(error){
         next(error)
           }
-}
+};
 
 module.exports = {
     getPosts,

@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/Blog.css";
 import { Link, NavLink } from "react-router-dom";
+
+
 const NavBar = ({onPress}) => { 
   return (
     <div className="blog-post-navbar">
@@ -23,7 +25,7 @@ const NavBar = ({onPress}) => {
       </li>
       <li>
         <Link to="create-new-post">
-          <button>Create New Post</button>
+          Create New Post
         </Link>
       </li>
     </ul>

@@ -1,5 +1,4 @@
 import React from 'react'
-import AddComment from '../Componets/coment/AddComment';
 import FeaturedPost from '../Componets/FeaturedPost'
 import ListPost from '../Componets/ListPost'
  export const HomePage = ({posts, OnEdit, onDelete}) => {
@@ -21,4 +20,4 @@ import ListPost from '../Componets/ListPost'
         </>
 
   );
-}
+};
