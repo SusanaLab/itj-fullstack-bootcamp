@@ -1,53 +1,62 @@
-import React, { useState} from "react";
-import { Link} from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import "../coment/comment.css"
 
-const AddComment = ({  onSaveComment, commentToUpdate }) => {
 
-  const newComment = {  
-    body: "",
-    updatedAt: new Date().toISOString(),
+const CommentInput = ({ comment, onSave, onEdit }) => {
 
-  };
-  const [newCommentState, setNewComment] = useState(commentToUpdate || newComment);
-/*   const [newPostState, setNewPostState] = useState(postToUpdate || newPost); */
+    const defaultComment = {
+        comment: '',
+        author: '',
+    }
 
-  const handleOnChange = (event) => {
-    //here we check for changes and save the values to the array, using key y value for new note, and add to new post state
-    const name = event.target.name;
-    const value = event.target.value;
-  /*   setNewPostState({...newPostState, [name]: value}); */
-    setNewComment({...newCommentState, [name]: value});
-  };
+    const [newComment, setNewComment] = useState(defaultComment)
 
-  return(
-    <div className="container">
-      <form id="create-post-form" className="post-form">
-      
-        <div className="input-field">
-          <label>Body</label>
-          <textarea
-            type="text"
-            name="body"
-            placeholder="Add a body to the post"
-            value={newCommentState.body}
-            onChange={handleOnChange}
-          />
+    useEffect(() => {
+        if (comment)
+            setNewComment(comment)
+    }, [comment])
+
+    const handleOnChange = event => {
+        const name = event.target.name
+        const value = event.target.value
+        setNewComment({ ...newComment, [name]: value })
+    }
+
+    return(
+        <div className='comment-input-container'>
+            <div className="input-field">
+                <input
+                    type="text"
+                    name="author"
+                    placeholder="Add your name"
+                    value={ newComment.author }
+                    onChange={ handleOnChange }
+                />
+            </div>
+            <div className="input-field">
+                <textarea
+                    style={{ height: "100px"}}
+                    type="text"
+                    name="comment"
+                    placeholder="Add your comment"
+                    value={ newComment.comment }
+                    onChange={ handleOnChange }
+                />
+            </div>
+            <div className='buttons-container'>
+                <button className='button-save'
+                    onClick={ () => {
+                        if (newComment._id)
+                            onEdit(newComment)
+                        else
+                            onSave(newComment)
+                        setNewComment(defaultComment)
+                    }}>
+                    { newComment._id ? 'Edit comment' : 'Save comment' }
+                </button>
+            </div>
         </div>
-
-        <div className="buttons-container">
-          <Link to="/">
-            <button type="button">Cancel</button>
-          </Link>
-
-          {/* <button type="button" onClick={() => onSave(newPostState)}> */}
-          <button type="button" onClick={() => onSaveComment(newComment)}>
-            Save
-          </button>
-        </div>
-      </form>
-    </div>
-  );
+    )
 }
 
-
-export default AddComment;
+export default CommentInput

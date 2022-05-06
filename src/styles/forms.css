@@ -4,13 +4,18 @@
 .container {
   display: flex;
   justify-content: center;
-  background-color: var(--gray-medium-color)
+  background-image: url("https://images.unsplash.com/photo-1500402448245-d49c5229c564?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  font-family: 'Poor Story';
 }
 
 .post-form {
   position: sticky;
   margin-top: 40px;
   margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 16px;
   min-width: 50%;
   background-color: var(--white-color);
@@ -20,12 +25,16 @@
 .input-field {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-bottom: 16px;
+  font-family: 'Poor Story';
 }
 
 .input-field label {
+  justify-content: center;
   color: var(--green-medium-color);
   margin-bottom: 12px;
+  font-family: 'Poor Story';
 }
 
 .input-field input {
@@ -35,6 +44,7 @@
   font-size: medium;
   padding-left: 6px;
   padding-right: 6px;
+  font-family: 'Poor Story';
 }
 
 .input-field textarea {
@@ -43,12 +53,14 @@
   min-height: 45px;
   font-size: large;
   padding: 8px;
+  font-family: 'Poor Story';
 }
 
 .buttons-container {
   display: flex;
   justify-content: flex-end;
   margin: 16px;
+  font-family: 'Poor Story';
 }
 
 .buttons-container button, .buttons-container a {
@@ -66,6 +78,7 @@
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    font-family: 'Poor Story';
 }
 
 .buttons-container button:hover, .buttons-container a:hover {

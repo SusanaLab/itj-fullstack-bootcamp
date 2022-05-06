@@ -64,7 +64,7 @@ const deletePost = async (req, res, next) => {
           catch(error){
         next(error)
           }
-};
+}
 
 module.exports = {
     getPosts,

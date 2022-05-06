@@ -9,23 +9,28 @@ const NavBar = ({onPress}) => {
     <div className="blog-post-brand">
       <Link to="/">
         <img
-          src="https://itjuana.com/wp-content/uploads/ITJ_tm-logo.png"
+          src="https://st2.depositphotos.com/18722762/46746/v/380/depositphotos_467469132-stock-illustration-our-planet-earth-illustration-green.jpg?forcejpeg=true"
           alt="itjuana logo"
-          width={80}
+          width={100}
           height={80}
         />
       </Link>
+    
     </div>
+<h1 className="planet"> THE PLANET </h1>
     <ul>
-      <li>
-        <NavLink to="join-our-team">Join our team</NavLink>
+    <li>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="contact-us">Contact us</NavLink>
+        <NavLink to="change">Climate Change</NavLink>
+      </li>
+      <li>
+        <NavLink to="climate">Effects</NavLink>
       </li>
       <li>
         <Link to="create-new-post">
-          Create New Post
+          Share tips
         </Link>
       </li>
     </ul>

@@ -1,5 +1,7 @@
 .App {
     text-align: center;
+    font-family: 'Playfair Display';
+    background-image: url("https://images.unsplash.com/photo-1500402448245-d49c5229c564?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
   }
   
   .App-logo {
@@ -21,7 +23,7 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: rgb(177, 38, 38);
   }
   
   .App-link {

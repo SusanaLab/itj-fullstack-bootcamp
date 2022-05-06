@@ -83,6 +83,7 @@ useEffect(() => {
           <input
             type="text"
             name="imageUrl"
+            placeholder="Add URL"
             value={newPostState.imageUrl}
             onChange={handleOnChange}
           />
@@ -90,7 +91,7 @@ useEffect(() => {
 
         <div className="buttons-container">
           <Link to="/">
-            <button type="button">Cancel</button>
+         Cancel
           </Link>
 
           <button type="button" 

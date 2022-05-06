@@ -5,10 +5,11 @@
   flex-direction: row;
   justify-content: space-between;
   position: sticky;
+  font-family: 'Poor Story';
   padding-left: 12px;
   padding-right: 12px;
   top: 0;
-  background-color: var(--white-color);
+  background-color: F5F3F6;
 }
 
 .blog-post-navbar ul {
@@ -19,7 +20,9 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+  color: var(--green-medium-color);
   background-color: var(--white-color);
+  background-color: F5F3F6;
 }
 
 .blog-post-navbar li {
@@ -65,6 +68,7 @@
   margin-left: 12px !important;
   margin-right: 12px !important;
   margin-bottom: 60px;
+ 
 }
 
 .blog-post-image {
@@ -77,6 +81,8 @@
   display: block;
   flex-basis: 58%;
   padding-left: 22px;
+  text-align: justify;
+
 }
 
 .blog-post-details a {
@@ -87,11 +93,19 @@
 
 .blog-post-details a:hover {
   color: var(--blue-medium-color);
+  background-image: url("https://images.unsplash.com/photo-1500402448245-d49c5229c564?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
 }
 
 .blog-post-details p {
   color: var(--oxford-color-gray);
+  font-family: 'Poor Story';
 }
 .blog-create{
   background-color: var(--green-medium-color);
+}
+.titulo{
+  color: var(--green-medium-color) !important;
+  font-family: 'Poor Story';
 }

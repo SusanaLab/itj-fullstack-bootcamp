@@ -69,8 +69,8 @@ function App() {
             />
           }
         />
-        <Route path="join-our-team" element={<JoinOurTeam />} />
-        <Route path="contact-us" element={<ContactUs />} />
+        <Route path="change" element={<JoinOurTeam />} />
+        <Route path="climate" element={<ContactUs />} />
         <Route path="*" element={<Error />} />
         <Route
           path="create-new-post"
